@@ -42,7 +42,7 @@ prompt(QUESTIONS).then((answers) => {
   const pakageDescription = answers["package-description"];
   const repoURL = answers["github-url"];
 
-  const templatePath = `${__dirname}/templates`;
+  const templatePath = `${__dirname}/template`;
 
   const packageJsonProperties = {
     name: packageName,
