@@ -60,7 +60,7 @@ prompt(QUESTIONS).then((answers) => {
   // rewrite package.json file
   rewritePackageJson(packageJson, packageJsonProperties);
 
-  runInstallation(packageName);
+  console.log(`1. cd ${packageName} && npm install`);
 });
 
 function createDirectoryContents(templatePath, newProjectPath) {
@@ -101,27 +101,4 @@ function rewritePackageJson(pathTopackageJson, properties) {
     2
   );
   fs.writeFileSync(pathTopackageJson, newPackageJson);
-}
-
-const runCommand = (command) => {
-  try {
-    execSync(`${command}`, { stdio: `inherit` });
-  } catch (e) {
-    console.log(`Failed to execute ${command}`, e);
-    return false;
-  }
-  return true;
-};
-
-function runInstallation(repoName) {
-  const installDepsCommand = `cd ${repoName} && npm install`;
-
-  console.log("\n");
-  console.log(`Installing all dependencies for ${repoName}`);
-  const installDeps = runCommand(installDepsCommand);
-  if (!installDeps) process.exit(-1);
-
-  console.log(
-    "Successfully Installed dependencies: Follow the following commands to start"
-  );
 }
