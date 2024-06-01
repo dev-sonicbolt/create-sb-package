@@ -1,6 +1,6 @@
 {
   "name": "create-sb-package",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Creates a starter template package",
   "bin": {
     "create-sb-package": "index.js"
