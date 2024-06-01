@@ -31,7 +31,7 @@ const QUESTIONS = [
     name: "github-url",
     type: "input",
     message: "Github Repo URL:",
-    default: "https://github.com/sonicbolt-dev/{repoName}",
+    default: "https://github.com/dev-sonicbolt/{repoName}",
   },
 ];
 
@@ -43,7 +43,7 @@ prompt(QUESTIONS).then((answers) => {
   const templatePath = `${__dirname}/template`;
 
   const packageJsonProperties = {
-    name: packageName,
+    name: `@sonicbolt-dev/${packageName}`,
     description: pakageDescription,
     repository: {
       type: "git",
