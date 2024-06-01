@@ -1,0 +1,83 @@
+{
+   "name": "pacakge",
+   "version": "1.1.0",
+   "description": "",
+   "main": "dist/cjs/index.js",
+   "module": "dist/esm/index.js",
+   "files": [
+      "dist"
+   ],
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/dev-sonicbolt/pacakge.git"
+   },
+   "types": "dist/index.d.ts",
+   "./types": "./dist/types/index.d.ts",
+   "scripts": {
+      "build": "npm run clean && npm run rollup",
+      "clean": "IF exist dist (rd /s /q dist)",
+      "rollup": "rollup -c",
+      "test": "jest --coverage",
+      "storybook": "start-storybook -p 6006",
+      "build-storybook": "build-storybook"
+   },
+   "author": "dev-sonicbolt",
+   "license": "ISC",
+   "devDependencies": {
+      "@babel/core": "^7.18.5",
+      "@babel/preset-env": "^7.18.2",
+      "@babel/preset-react": "^7.17.12",
+      "@babel/preset-typescript": "^7.17.12",
+      "@rollup/plugin-commonjs": "^22.0.0",
+      "@rollup/plugin-image": "^2.1.1",
+      "@rollup/plugin-node-resolve": "^13.3.0",
+      "@rollup/plugin-typescript": "^8.3.3",
+      "@rollup/plugin-url": "^7.0.0",
+      "@storybook/addon-actions": "^6.5.9",
+      "@storybook/addon-essentials": "^6.5.9",
+      "@storybook/addon-interactions": "^6.5.9",
+      "@storybook/addon-links": "^6.5.9",
+      "@storybook/builder-webpack5": "^6.5.9",
+      "@storybook/manager-webpack5": "^6.5.9",
+      "@storybook/react": "^6.5.9",
+      "@storybook/testing-library": "^0.0.13",
+      "@svgr/rollup": "^6.2.1",
+      "@svgr/webpack": "^6.2.1",
+      "@tanstack/react-query": "^4.28.0",
+      "@tanstack/react-table": "^8.5.13",
+      "@testing-library/react": "^12.1.5",
+      "@types/jest": "^28.1.2",
+      "@types/react": "^18.0.14",
+      "babel-jest": "^28.1.1",
+      "babel-loader": "^8.2.5",
+      "identity-obj-proxy": "^3.0.0",
+      "jest": "^28.1.1",
+      "jest-environment-jsdom": "^28.1.1",
+      "postcss": "^8.4.14",
+      "react": "^17.0.2",
+      "@sonicbolt-dev/sonicboltui": "^4.17.4",
+      "react-dom": "^17.0.2",
+      "react-router-dom": "^6.3.0",
+      "rollup": "^2.75.7",
+      "rollup-plugin-dts": "^4.2.2",
+      "rollup-plugin-exclude-dependencies-from-bundle": "^1.1.22",
+      "rollup-plugin-peer-deps-external": "^2.2.4",
+      "rollup-plugin-postcss": "^4.0.2",
+      "rollup-plugin-terser": "^7.0.2",
+      "tslib": "^2.4.0",
+      "typescript": "^4.7.4",
+      "webpack": "^5.73.0"
+   },
+   "peerDependencies": {
+      "@svgr/webpack": "^6.2.1",
+      "@tanstack/react-query": "^4.24.10",
+      "@tanstack/react-table": "^8.5.13",
+      "react": "^17.0.2",
+      "react-dom": "^17.0.2",
+      "react-router-dom": "^6.3.0",
+      "@sonicbolt-dev/sonicboltui": "^4.17.4"
+   },
+   "dependencies": {
+      "yup": "^1.1.1"
+   }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "create-sb-package",
+  "version": "1.0.0",
+  "description": "Creates a starter template package",
+  "bin": {
+    "create-sb-package": "index.js"
+  },
+  "main": "index.js",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev-sonicbolt/create-sb-package.git"
+  },
+  "author": "dev-sonicbolt@sonicbolt.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dev-sonicbolt/create-sb-package/issues"
+  },
+  "homepage": "https://github.com/dev-sonicbolt/create-sb-package#readme",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "inquirer": "^9.1.4"
+  },
+  "files": [
+    "template/"
+  ],
+  "publishConfig": {
+    "@sonicbolt-dev:registry": "https://npm.pkg.github.com"
+  }
+}
