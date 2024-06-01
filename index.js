@@ -10,7 +10,7 @@ const CURR_DIR = process.cwd();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const prompt = createPromptModule();
-const CHOICES = fs.readdirSync(`${__dirname}/templates`);
+const CHOICES = fs.readdirSync(`${__dirname}/template`);
 
 const QUESTIONS = [
   {
