@@ -4,13 +4,11 @@ import { createPromptModule } from "inquirer";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { execSync } from "child_process";
 
 const CURR_DIR = process.cwd();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const prompt = createPromptModule();
-const CHOICES = fs.readdirSync(`${__dirname}/template`);
 
 const QUESTIONS = [
   {
@@ -56,9 +54,79 @@ prompt(QUESTIONS).then((answers) => {
   fs.mkdirSync(`${CURR_DIR}/${packageName}`);
   createDirectoryContents(templatePath, packageName);
   const packageJson = `${CURR_DIR}/${packageName}/package.json`;
+  const pathToReadMeFile = `${CURR_DIR}/${packageName}/README.md`;
 
   // rewrite package.json file
   rewritePackageJson(packageJson, packageJsonProperties);
+
+  const readmeContent =
+    `# **${packageName}**
+  
+  ## **Perquisites**
+  
+  Every time you clone this repo or before installing running ` +
+    "```npm i```" +
+    `, make sure you have a ` +
+    "```.npmrc```" +
+    ` file in your package folder_.
+  
+  After downloading, paste the ` +
+    "```.npmrc```" +
+    ` file at the root of your package folder.
+  
+  ## **Installation**
+  
+  Install in the pcakage folder using
+
+    npm install @sonicbolt-dev/${packageName}
+  
+  # **For Contributors**
+  
+  ## **Installing**
+  
+  After copying the ` +
+    "```.npmrc```" +
+    ` file, Run 
+    npm i
+  
+  ## **Run Storybook**
+  
+     npm run storybook 
+  
+  ## **Build and Version**
+  - create the feature branch from main
+     
+  - make changes
+     
+  - commit changes
+     
+  - push changes to feature branch
+     
+  - Run npm version patch/minor/major accordingly
+
+    For small changes
+
+        npm version patch 
+
+    For minor changes
+
+        npm version minor 
+
+    For major changes
+
+        npm version major 
+        
+  - push changes to feature branch
+     
+  - npm run build
+     
+  - npm publish
+     
+  - create PR to main
+  `;
+
+  //update readmecontent
+  updateReadMeFile(pathToReadMeFile, readmeContent);
 
   console.log(`1. cd ${packageName} && npm install`);
 });
@@ -101,4 +169,8 @@ function rewritePackageJson(pathTopackageJson, properties) {
     2
   );
   fs.writeFileSync(pathTopackageJson, newPackageJson);
+}
+
+function updateReadMeFile(pathToReadMeFile, content) {
+  fs.writeFileSync(pathToReadMeFile, content);
 }
